@@ -13,7 +13,7 @@ COPY . /source
 WORKDIR /source/src
 CMD dotnet run --no-launch-profile
 
-FROM dhi.io/aspnetcore:10
+FROM dhi.io/aspnetcore:10 AS final
 WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet", "myWebApp.dll"]
